@@ -2,6 +2,7 @@ const express = require('express')
 const { connection } = require('./config')
 require('dotenv').config()
 const userRoutes = require("./routes/userRoutes")
+const profileRoutes = require("./routes/profileRoutes")
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -12,7 +13,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use('/api/users', userRoutes)
-
+app.use('/api/profile',profileRoutes)
 
 app.listen(PORT,async()=>{
     try {
